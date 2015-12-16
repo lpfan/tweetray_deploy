@@ -9,3 +9,12 @@ git '/opt/tweetray' do
     user 'rab'
     group 'rab'
 end
+
+bash 'create, activate venv and install all reqs' do
+    cwd '/opt/tweetray'
+    user 'rab'
+    code <<-EOH
+    virtualenv env -p /usr/bin/python3
+    /opt/tweetray/env/bin/pip install -r reqs.txt
+    EOH
+end
