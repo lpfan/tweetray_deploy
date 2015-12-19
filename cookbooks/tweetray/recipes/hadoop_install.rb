@@ -24,6 +24,11 @@ group 'hadoop' do
     append true
 end
 
+directory '/usr/local/hadoop' do
+    owner 'hduser'
+    group 'hadoop' 
+end
+
 tar_extract 'http://apache.ip-connect.vn.ua/hadoop/common/hadoop-2.7.1/hadoop-2.7.1.tar.gz' do
     target_dir '/usr/local/hadoop'
     tar_flags ['--strip-components 1']
